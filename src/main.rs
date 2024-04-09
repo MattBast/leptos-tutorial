@@ -20,6 +20,8 @@ mod todo;
 use todo::ToDoApp;
 mod async_load;
 use async_load::{ AsyncLoad, LoadTwoServices };
+mod search;
+use search::SearchPage;
 
 fn main() {
     _ = console_log::init_with_level(log::Level::Debug);
@@ -44,6 +46,7 @@ fn App() -> impl IntoView {
                 <A href="/todo">"To Do"</A>
                 <A href="/load_data">"Load Data"</A>
                 <A href="/contacts">"Contacts"</A>
+                <A href="/search">"Search"</A>
             </nav>
             <main>
                 // All routes go here. If there are component elements that belong
@@ -71,6 +74,7 @@ fn App() -> impl IntoView {
                             </div>
                         }/>
                     </Route>
+                    <Route path="/search" view=SearchPage/>
                 </Routes>
             </main>
         </Router>
