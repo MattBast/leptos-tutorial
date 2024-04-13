@@ -1,5 +1,6 @@
 use leptos::*;
 use leptos_router::*;
+use leptos_meta::*;
 
 async fn fetch_results(search_query: String) -> String {
     if search_query.is_empty() {
@@ -21,6 +22,9 @@ pub fn SearchPage() -> impl IntoView {
     let search_results = create_resource(search, fetch_results);
 
     view! {
+        
+        <Title text="Search"/>
+
         <Form method="GET" action="">
             <input type="search" name="q" value=search/>
             <input type="submit"/>

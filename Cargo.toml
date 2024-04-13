@@ -13,3 +13,4 @@ log = "0.4"
 rand = "0.8.5"
 gloo-timers = { version = "0.3.0", features = ["futures"] }
 leptos_router = { version = "0.6.10", features = ["csr"] }
+leptos_meta = { version = "0.6.11", features = ["csr"] }

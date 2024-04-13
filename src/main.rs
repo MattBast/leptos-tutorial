@@ -1,5 +1,6 @@
 use leptos::*;
 use leptos_router::*;
+use leptos_meta::*;
 
 // import modules
 mod button;
@@ -34,6 +35,14 @@ fn main() {
 fn App() -> impl IntoView {
     
     view! {
+        
+        // Creates a hierarchial title across routes.
+        <Title formatter=|text| format!("Leptos | {text}")/>
+
+        // Meta tags help the browser interpret the page and can provide some
+        // information for SEO
+        <Meta charset="utf-8"/>
+
         // if using routes, everything should go inside the `Router` tags
         <Router>
             <nav>
@@ -93,6 +102,11 @@ fn HomePage() -> impl IntoView {
 
     view! {
 
+        <Title text="Home"/>
+        <Meta name="description" content="The home page of the Leptos lesrning website."/>
+        <Meta name="keywords" content="Home, Leptos, CSR"/>
+        <Meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
         // create a button that increments the count when clicked
         <Button set_count=set_count count=count/>
 
@@ -126,6 +140,8 @@ fn ConditionalPage() -> impl IntoView {
 
     view! {
 
+        <Title text="Conditionals"/>
+
         // create a button that increments the count when clicked
         <Button set_count=set_count count=count/>
 
@@ -154,6 +170,8 @@ fn ListsPage() -> impl IntoView {
 
     view! {
 
+        <Title text="Lists"/>
+
         <StaticList static_values=static_values/>
 
         <DynamicList/>
@@ -166,6 +184,8 @@ fn ListsPage() -> impl IntoView {
 fn InputsPage() -> impl IntoView {
 
     view! {
+
+        <Title text="Inputs"/>
 
         <Controlled/>
 
@@ -185,6 +205,8 @@ fn HierarchyPage() -> impl IntoView {
     let (count, set_count) = create_signal(0);
 
     view! {
+
+        <Title text="Hierarchy"/>
 
         <Parent/>
 
@@ -206,6 +228,8 @@ fn ToDoPage() -> impl IntoView {
 
     view! {
 
+        <Title text="To Do"/>
+
         <ToDoApp/>
         
     }
@@ -216,6 +240,8 @@ fn ToDoPage() -> impl IntoView {
 fn LoadDataPage() -> impl IntoView {
 
     view! {
+
+        <Title text="Load Data"/>
 
         <AsyncLoad/>
 
@@ -228,6 +254,9 @@ fn LoadDataPage() -> impl IntoView {
 #[component]
 fn ContactList() -> impl IntoView {
     view! {
+        
+        <Title text="Contacts"/>
+
         <div>
             <div>
                 <h3>"Contacts"</h3>
@@ -255,6 +284,8 @@ fn ContactInfo() -> impl IntoView {
     let id = move || params.with(|params| params.get("id").cloned().unwrap_or_default());
 
     view! {
+
+        <Title text="Contact Info"/>
 
         <div>
             <h4>{id}</h4>
